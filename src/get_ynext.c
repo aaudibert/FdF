@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/24 17:00:10 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/10/24 17:09:12 by aaudiber         ###   ########.fr       */
+/*   Updated: 2016/10/24 17:19:56 by aaudiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ t_crd		*get_ynext(t_crd *map)
 	{
 		while ((tmp->x != map->x) && (tmp->y == (map->y + 1)))
 			tmp = tmp->next;
-		map->ynext = tmp;
+		if (!tmp)
+		{
+			map->ynext = NULL;
+			tmp = map->next;
+		}
+		else
+			map->ynext = tmp;
 		map = map->next;
 	}
 	return (ret);
