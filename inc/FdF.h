@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 15:22:48 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/09/28 18:28:43 by aaudiber         ###   ########.fr       */
+/*   Updated: 2016/10/24 17:08:59 by aaudiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include "../libft/includes/libft.h"
-#include "../mlx/mlx.h"
+# include "../mlx/mlx.h"
 
 # define RESET			"\x1B[0m"
 # define RED			"\x1B[31m"
@@ -55,6 +55,7 @@ typedef struct			s_crd
 	int					val;
 	struct s_crd		*next;
 	struct s_crd		*prev;
+	struct s_crd		*ynext;
 }						t_crd;
 
 typedef struct			s_pad
@@ -78,13 +79,14 @@ typedef struct			s_env
 	int					w;
 }						t_env;
 
-int						get_next_line(int const fd, char **line);
+char					**get_line(int fd, int r);
 t_crd					*create_map(char *file);
 void					err_func(char *err);
 int						wrong_extension(char *file);
 t_crd					*new_link(int x, int y, int z, int val);
 t_crd					*link_push(t_crd *nw, t_crd *curr);
 t_crd					*rewind_lst(t_crd *map);
+t_crd					*get_ynext(t_crd *map);
 void					iso_map(t_crd *map, int h, int w);
 void					get_max(t_pad *pad, t_crd *map);
 float					center_x(t_pad *p, int w);
