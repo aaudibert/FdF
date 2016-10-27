@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/19 23:33:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/09/28 18:35:17 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/10/26 19:34:42 by aaudiber          #+#    #+#             */
+/*   Updated: 2016/10/26 21:33:44 by aaudiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
 
-t_crd			*get_number(char **map, t_crd *cd, int y)
+t_crd            *get_number(char **map, t_crd *cd, int y)
 {
-	int		i;
-	int		j;
+	int        i;
+	int        j;
 
 	i = -1;
 	while (map[++i])
@@ -40,12 +40,12 @@ t_crd			*get_number(char **map, t_crd *cd, int y)
 	return (cd);
 }
 
-t_crd		*get_map_val(char *map)
+t_crd        *get_map_val(char *map)
 {
-	char	**tmp;
-	char	**tmp2;
-	int		y;
-	t_crd	*ret;
+	char    **tmp;
+	char    **tmp2;
+	int        y;
+	t_crd    *ret;
 
 	tmp = ft_strsplit(map, '\n');
 	free(map);
@@ -61,10 +61,13 @@ t_crd		*get_map_val(char *map)
 	}
 	ft_free_arr(tmp);
 	ret = rewind_lst(ret);
+	ret = ret->next;
+	free(ret->prev);
+	ret->prev = 0;
 	return (ret);
 }
 
-char		*copy_map(char *tmp, char *line)
+char        *copy_map(char *tmp, char *line)
 {
 	char *ret;
 	char *tmp2;
@@ -81,12 +84,12 @@ char		*copy_map(char *tmp, char *line)
 	}
 }
 
-t_crd		*create_map(char *file)
+t_crd        *create_map(char *file)
 {
-	t_crd	*map;
-	int		fd;
-	char	*line;
-	char	*tmp;
+	t_crd    *map;
+	int        fd;
+	char    *line;
+	char    *tmp;
 
 	tmp = NULL;
 	map = (t_crd *)malloc(sizeof(t_crd));

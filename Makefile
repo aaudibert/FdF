@@ -6,7 +6,7 @@
 #    By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/04 16:20:10 by aaudiber          #+#    #+#              #
-#    Updated: 2016/06/20 21:14:21 by aaudiber         ###   ########.fr        #
+#    Updated: 2016/10/27 18:41:31 by aaudiber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,12 @@ NAME = FdF
 SRC = ./src/FdF.c\
 	  ./src/get_next_line.c\
 	  ./src/create_map.c\
+	  ./src/get_ynext.c\
 	  ./src/err_func.c\
 	  ./src/new_link.c\
 	  ./src/iso_map.c\
 	  ./src/get_max.c\
+	  ./src/print_seg.c
 
 OBJ = $(SRC:.c:.o)
 
