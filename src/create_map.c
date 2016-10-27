@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/26 19:34:42 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/10/26 21:33:44 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/06/19 23:33:43 by aaudiber          #+#    #+#             */
+/*   Updated: 2016/10/27 21:33:15 by aaudiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ t_crd        *get_map_val(char *map)
 	int        y;
 	t_crd    *ret;
 
-	tmp = ft_strsplit(map, '\n');
-	free(map);
 	y = 0;
 	ret = new_link(0, 0, 0, 0);
 	ret->prev = NULL;
@@ -86,19 +84,17 @@ char        *copy_map(char *tmp, char *line)
 
 t_crd        *create_map(char *file)
 {
-	t_crd    *map;
-	int        fd;
-	char    *line;
-	char    *tmp;
+	t_crd	*map;
+	int		fd;
+	char	**line;
 
-	tmp = NULL;
 	map = (t_crd *)malloc(sizeof(t_crd));
 	map->x = 0;
 	if (wrong_extension(file))
 		err_func("Map must be in the following format: name.fdf");
 	if ((fd = open(file, O_RDONLY)) == -1)
 		err_func("File can't be opened.");
-	while (get_next_line(fd, &line) == 1)
-		tmp = copy_map(tmp, line);
-	return (map = get_map_val(tmp));
+	line = get_line(fd, 1);
+	close(fd);
+	return (map = get_map_val(line));
 }
