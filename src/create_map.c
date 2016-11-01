@@ -6,16 +6,16 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/19 23:33:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/10/27 15:08:39 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/01 17:27:00 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
 
-t_crd			*get_number(char **map, t_crd *cd, int y)
+t_crd            *get_number(char **map, t_crd *cd, int y)
 {
-	int		i;
-	int		j;
+	int        i;
+	int        j;
 
 	i = -1;
 	while (map[++i])
@@ -67,7 +67,7 @@ t_crd		*get_map_val(char *map)
 	return (get_ynext(ret));
 }
 
-char		*copy_map(char *tmp, char *line)
+char        *copy_map(char *tmp, char *line)
 {
 	char *ret;
 	char *tmp2;
@@ -84,7 +84,7 @@ char		*copy_map(char *tmp, char *line)
 	}
 }
 
-t_crd		*create_map(char *file)
+t_crd        *create_map(char *file)
 {
 	t_crd	*map;
 	int		fd;

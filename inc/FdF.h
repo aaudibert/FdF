@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 15:22:48 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/10/27 18:50:48 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/01 17:24:33 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ typedef struct			s_env
 
 int						get_next_line(int const fd, char **line);
 t_crd					*create_map(char *file);
+t_crd					*get_ynext(t_crd *map);
 void					err_func(char *err);
 int						wrong_extension(char *file);
 t_crd					*new_link(int x, int y, int z, int val);
@@ -104,4 +105,5 @@ void					get_max(t_pad *pad, t_crd *map);
 float					center_x(t_pad *p, int w);
 float					center_y(t_pad *p, int h);
 void					print_segment(t_env e, t_crd *map, t_crd *next);
+void					del_crd(t_crd *m);
 #endif
