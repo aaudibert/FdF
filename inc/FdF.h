@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 15:22:48 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/10/24 17:08:59 by aaudiber         ###   ########.fr       */
+/*   Updated: 2016/10/27 18:50:48 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,18 @@
 # define MZ				map->z
 # define MLX			e.mlx
 # define WIN			e.win
+
+typedef struct			s_bres
+{
+	float				xi;
+	float				yi;
+	float				xf;
+	float				yf;
+	float				dx;
+	float				dy;
+	int					xinc;
+	int					yinc;
+}						t_bres;
 
 typedef struct			s_img
 {
@@ -79,7 +91,7 @@ typedef struct			s_env
 	int					w;
 }						t_env;
 
-char					**get_line(int fd, int r);
+int						get_next_line(int const fd, char **line);
 t_crd					*create_map(char *file);
 void					err_func(char *err);
 int						wrong_extension(char *file);
@@ -91,4 +103,5 @@ void					iso_map(t_crd *map, int h, int w);
 void					get_max(t_pad *pad, t_crd *map);
 float					center_x(t_pad *p, int w);
 float					center_y(t_pad *p, int h);
+void					print_segment(t_env e, t_crd *map, t_crd *next);
 #endif

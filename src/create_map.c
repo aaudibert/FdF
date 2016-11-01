@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/19 23:33:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/10/24 17:00:04 by aaudiber         ###   ########.fr       */
+/*   Updated: 2016/10/27 15:08:39 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,15 @@ t_crd			*get_number(char **map, t_crd *cd, int y)
 	return (cd);
 }
 
-t_crd		*get_map_val(char **tmp)
+t_crd		*get_map_val(char *map)
 {
+	char	**tmp;
 	char	**tmp2;
 	int		y;
 	t_crd	*ret;
 
+	tmp = ft_strsplit(map, '\n');
+	free(map);
 	y = 0;
 	ret = new_link(0, 0, 0, 0);
 	ret->prev = NULL;
@@ -58,6 +61,9 @@ t_crd		*get_map_val(char **tmp)
 	}
 	ft_free_arr(tmp);
 	ret = rewind_lst(ret);
+	ret = ret->next;
+	free(ret->prev);
+	ret->prev = NULL;
 	return (get_ynext(ret));
 }
 
@@ -82,15 +88,17 @@ t_crd		*create_map(char *file)
 {
 	t_crd	*map;
 	int		fd;
-	char	**line;
+	char	*line;
+	char	*tmp;
 
+	tmp = NULL;
 	map = (t_crd *)malloc(sizeof(t_crd));
 	map->x = 0;
 	if (wrong_extension(file))
 		err_func("Map must be in the following format: name.fdf");
 	if ((fd = open(file, O_RDONLY)) == -1)
 		err_func("File can't be opened.");
-	line = get_line(fd, 1);
-	close(fd);
-	return (map = get_map_val(line));
+	while (get_next_line(fd, &line) == 1)
+		tmp = copy_map(tmp, line);
+	return (map = get_map_val(tmp));
 }
