@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 18:19:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/01 17:26:25 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/01 18:47:13 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void	print_segment(t_env e, t_crd *map, t_crd *next)
 		bsm.dy = bsm.dy * -1;
 	mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, color);
 	if (bsm.dx > bsm.dy)
-		dx_sup_dy(e.mlx, e.win, bsm, color);
+		dx_sup_dy(e, bsm, color);
 	else
-		dx_inf_dy(e.mlx, e.win, bsm, color);
+		dx_inf_dy(e, bsm, color);
 }
 

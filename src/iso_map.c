@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/19 23:25:24 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/09/28 18:28:17 by aaudiber         ###   ########.fr       */
+/*   Updated: 2016/10/24 18:03:34 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void		iso_map(t_crd *orig, int h, int w)
 	pad = get_pad(map, w, h);
 	while (map)
 	{
-		ft_putendl("viev");
 		map->isx = ((pad->px / 2) * (MX - MY)) + pad->cx;
 		map->isy = ((pad->py / 2) * (MX + MY - (MZ * pad->ct))) + (pad->cy / 2);
 		if (map->next)
@@ -66,6 +65,16 @@ void		iso_map(t_crd *orig, int h, int w)
 			ft_putnbr(orig->isx);
 			ft_putstr(", isy = ");
 			ft_putnbr(orig->isy);
+			if (orig->ynext)
+			{
+				ft_putstr(" || ynext --> ");
+			ft_putstr("x = ");
+			ft_putnbr(orig->ynext->x);
+			ft_putstr(", y = ");
+			ft_putnbr(orig->ynext->y);
+			ft_putstr(", z = ");
+			ft_putnbr(orig->ynext->z);
+			}
 			ft_putchar('\n');
 		}
 		orig = orig->next;

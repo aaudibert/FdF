@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 21:24:10 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/06/21 23:05:57 by aaudiber         ###   ########.fr       */
+/*   Updated: 2016/10/26 17:28:07 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ t_crd		*new_link(int x, int y, int z, int val)
 	ret->isx = 0;
 	ret->isy = 0;
 	ret->val = val;
+	ret->ynext = NULL;
 	return (ret);
 }

@@ -6,13 +6,13 @@
 #    By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/04 16:20:10 by aaudiber          #+#    #+#              #
-#    Updated: 2016/11/01 17:23:53 by jumiguel         ###   ########.fr        #
+#    Updated: 2016/11/01 18:46:58 by jumiguel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = FdF
 
-SRC = ./src/FdF_2.c\
+SRC = ./src/FdF.c\
 	  ./src/get_next_line.c\
 	  ./src/create_map.c\
 	  ./src/get_ynext.c\
