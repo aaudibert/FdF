@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/19 23:25:24 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/02 16:19:30 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/02 17:09:45 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,32 +45,4 @@ void		iso_map(t_crd *orig, int h, int w)
 		else
 			break ;
 	}
-/*	while (orig)
-	{
-		if (orig->val)
-		{
-			ft_putstr("x = ");
-			ft_putnbr(orig->x);
-			ft_putstr(", y = ");
-			ft_putnbr(orig->y);
-			ft_putstr(", z = ");
-			ft_putnbr(orig->z);
-			ft_putstr(", isx = ");
-			ft_putnbr(orig->isx);
-			ft_putstr(", isy = ");
-			ft_putnbr(orig->isy);
-			if (orig->ynext)
-			{
-				ft_putstr(" || ynext --> ");
-			ft_putstr("x = ");
-			ft_putnbr(orig->ynext->x);
-			ft_putstr(", y = ");
-			ft_putnbr(orig->ynext->y);
-			ft_putstr(", z = ");
-			ft_putnbr(orig->ynext->z);
-			}
-			ft_putchar('\n');
-		}
-		orig = orig->next;
-	}*/
 }
