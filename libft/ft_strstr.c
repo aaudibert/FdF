@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 13:49:38 by aaudiber          #+#    #+#             */
-/*   Updated: 2014/11/08 12:05:24 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/03 16:16:32 by jumiguel          #+#    #+#             */
+/*   Updated: 2014/11/13 00:31:54 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strstr(const char *s1, const char *s2)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	int i;
-	int k;
+	char	*str1;
+	char	*str2;
+	int		len;
 
-	i = 0;
-	k = ft_strlen((char*)s2);
-	if (s2[0] == '\0')
-		return ((char*)s1);
-	while (s1[i] != '\0')
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	len = ft_strlen(str2);
+	if (len == 0)
+		return (str1);
+	while (*str1 != '\0')
 	{
-		if (s1[i] == s2[0])
-		{
-			if (ft_strncmp(s1 + i, s2, k) == 0)
-				return ((char*)s1 + i);
-		}
-		i++;
+		if (ft_strncmp(str1, str2, len) == 0)
+			return (str1);
+		str1++;
 	}
 	return (NULL);
 }

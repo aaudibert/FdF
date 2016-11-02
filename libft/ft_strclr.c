@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/07 15:01:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2014/11/07 18:51:48 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/07 16:20:57 by jumiguel          #+#    #+#             */
+/*   Updated: 2014/11/11 00:13:50 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_strclr(char *s)
+void	ft_strclr(char *s)
 {
 	if (s)
 		ft_bzero(s, ft_strlen(s));

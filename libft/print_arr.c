@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_arr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/14 18:57:48 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/02/18 17:28:02 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/08/22 19:16:25 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/09/01 16:39:58 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		print_arr(char **array)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if (!array)

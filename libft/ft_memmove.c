@@ -3,25 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 13:43:42 by aaudiber          #+#    #+#             */
-/*   Updated: 2014/11/12 17:27:15 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/04 18:49:05 by jumiguel          #+#    #+#             */
+/*   Updated: 2014/11/13 00:18:41 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-void			*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*temp;
+	unsigned char	*stmp;
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
 
-	if (!dst || !src)
+	str1 = (unsigned char *)dst;
+	str2 = (unsigned char *)src;
+	i = 0;
+	if (!(stmp = (unsigned char*)malloc(sizeof(*stmp) * len + 1)))
 		return (NULL);
-	temp = (unsigned char*)malloc(sizeof(unsigned char*) * len);
-	ft_memcpy(temp, src, len);
-	ft_memcpy(dst, temp, len);
-	free(temp);
+	while (i < len)
+	{
+		stmp[i] = str2[i];
+		i++;
+	}
+	i = 0;
+	while (i < len)
+	{
+		str1[i] = stmp[i];
+		i++;
+	}
+	free(stmp);
 	return (dst);
 }

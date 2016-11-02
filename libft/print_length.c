@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   print_length.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/23 18:45:03 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/03/23 18:46:51 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/08/22 19:20:35 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/08/22 20:06:04 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		print_length(char *s, int l)
+void	print_length(char *s, int l)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i < l && s[i] != '\0')

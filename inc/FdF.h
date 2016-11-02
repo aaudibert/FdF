@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 15:22:48 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/01 17:24:33 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/02 16:09:23 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@
 
 # define WHITE			0xFFFFFF
 # define MAGENTA		0xFF0000
-# define BLUE			0x00FFFF
+# define BLUE			0x000FFF
 # define GREEN			0x00FF00
+# define BROWN			0x613109
 
 # define MX				map->x
 # define MY				map->y
@@ -76,9 +77,11 @@ typedef struct			s_pad
 	float				py;
 	float				cx;
 	float				cy;
-	int					ct;
+	float				ct;
 	t_crd				*xm;
 	t_crd				*ym;
+	t_crd				*zx;
+	t_crd				*zn;
 }						t_pad;
 
 typedef struct			s_env

@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/19 23:25:24 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/10/24 18:03:34 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/02 16:19:30 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,15 @@ t_pad		*get_pad(t_crd *map, int w, int h)
 	t_pad *ret;
 
 	ret = (t_pad *)malloc(sizeof(t_pad));
-	ret->ct = 1;
 	get_max(ret, map);
+	if (ret->zx->z > 75 || ret->zn->z < -75)
+		ret->ct = 0.09;
+	else
+		ret->ct = 0.38;
 	ret->px = (w / ret->xm->x);
 	ret->py = (h / ret->ym->y) / 2;
 	ret->cx = center_x(ret, w);
 	ret->cy = center_y(ret, h);
-	if (ret->px > (ret->py * 2))
-		ret->px /= 2;
-	else if (ret->py > (ret->px * 2))
-		ret->py /= 2;
-	if (ret->px < 5)
-		ret->px = 7;
-	if (ret->py < 5)
-		ret->py = 7;
 	return (ret);
 }
 
@@ -50,7 +45,6 @@ void		iso_map(t_crd *orig, int h, int w)
 		else
 			break ;
 	}
-	rewind_lst(map);
 /*	while (orig)
 	{
 		if (orig->val)

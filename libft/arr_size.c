@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arr_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/16 22:18:05 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/06/06 21:31:11 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/08/22 15:54:09 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/08/22 15:55:16 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		arr_size(char **a)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (a[i])

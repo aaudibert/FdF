@@ -3,56 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/12 17:23:31 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/03/14 19:43:56 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/28 19:49:21 by jumiguel          #+#    #+#             */
+/*   Updated: 2014/11/28 21:02:40 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int		ft_intlenneg(int n)
+int		ft_size_lenght(int n, int *size)
 {
-	int i;
-	int len;
+	int	i;
+	int negative;
 
-	len = 1;
-	i = -10;
-	while (i >= n && i >= -1000000000)
+	negative = 0;
+	if (n < 0)
+		negative = 1;
+	i = 0;
+	*size = 1;
+	while (n / 10 != 0)
 	{
-		i = i * 10;
-		len++;
+		n /= 10;
+		*size *= 10;
+		i++;
 	}
-	return (len + 1);
+	return (i + negative);
 }
 
-char			*ft_itoa(int n)
+int		ft_result(int n)
 {
-	char	*ret;
-	int		len;
-
-	if (n == -2147483648)
-		return (ret = "-2147483648");
-	if (n >= 0)
-		len = ft_intlen(n);
 	if (n < 0)
-		len = ft_intlenneg(n);
-	if ((ret = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
-		return (NULL);
-	len--;
-	if (n < 0)
-	{
-		ret[0] = '-';
 		n = -n;
-	}
-	while (n >= 10)
+	n += '0';
+	return (n);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+	int		size;
+	int		i;
+
+	len = ft_size_lenght(n, &size);
+	if ((str = ft_strnew(len)))
 	{
-		ret[len] = ((n % 10) + 48);
-		n = n / 10;
-		len--;
+		i = 0;
+		if (n < 0)
+		{
+			str[i] = '-';
+			n = -n;
+			i++;
+		}
+		while (i < len)
+		{
+			str[i] = (ft_result(n / size) % 10);
+			size /= 10;
+			i++;
+		}
+		return (str);
 	}
-	ret[len] = (n + 48);
-	return (ret);
+	else
+		return (NULL);
 }

@@ -3,84 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/11 19:12:15 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/02/16 17:21:09 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/14 15:36:23 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/10/26 16:47:45 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int		ft_word_count(char const *s, char c)
+int		ft_count_str(char const *s, char c)
 {
-	int i;
-	int ret;
-
-	i = 0;
-	ret = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			ret++;
-		i++;
-	}
-	return (ret);
-}
-
-char			*ft_strndup(char const *s, int start, int len)
-{
-	char	*ret;
 	int		i;
+	int		ln;
+	char	*str;
 
+	str = (char *)s;
+	ln = 0;
 	i = 0;
-	ret = (char *)malloc(sizeof(char) * len);
-	ret[len] = 0;
-	while (i < len)
+	while (str[ln])
 	{
-		ret[i] = s[start];
-		i++;
-		start++;
-	}
-	return (ret);
-}
-
-int				len_c(char const *s, char c, int start)
-{
-	int i;
-
-	i = 0;
-	while (s[start] != '\0' && s[start] != c)
-	{
-		start++;
-		i++;
+		if ((str[ln - 1] != c && str[ln] == c) || str[ln + 1] == '\0')
+			i++;
+		ln++;
 	}
 	return (i);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char	*ft_recup_words(char *str, char c, int n)
 {
-	char	**ret;
-	int		wc;
-	int		i;
+	char	*copy;
+	int		word;
 
-	if (!s)
+	word = 0;
+	while (str[n] != c && str[n])
+	{
+		word++;
+		n++;
+	}
+	n = n - word;
+	if (!(copy = (char *)malloc(sizeof(char) * (word + 1))))
+		return (NULL);
+	word = 0;
+	while (str[n] != c && str[n])
+	{
+		copy[word] = str[n];
+		n++;
+		word++;
+	}
+	copy[word] = '\0';
+	return (copy);
+}
+
+char	**ft_strsplit(char const *s, char c)
+{
+	char	*str;
+	char	**tab;
+	int		i;
+	int		j;
+
+	str = (char *)s;
+	if (!str)
+		return (NULL);
+	if (!(tab = (char **)malloc(sizeof(char *) * (ft_count_str(str, c) + 1))))
 		return (NULL);
 	i = 0;
-	wc = ft_word_count(s, c);
-	if ((ret = (char**)malloc(sizeof(char*) * (wc + 1))) == NULL)
-		return (NULL);
-	ret[wc] = 0;
-	wc = -1;
-	while (s[i] != '\0')
+	j = 0;
+	while (str[i])
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] == '\0')
-			break ;
-		ret[++wc] = ft_strndup(s, i, len_c(s, c, i));
-		i += len_c(s, c, i);
+		if (str[i] != c && str[i])
+		{
+			tab[j] = ft_recup_words(str, c, i);
+			i = ft_strlen(tab[j]) + i - 1;
+			j++;
+		}
+		i++;
 	}
-	return (ret);
+	tab[j] = NULL;
+	return (tab);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 16:41:30 by aaudiber          #+#    #+#             */
-/*   Updated: 2014/11/03 16:46:51 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/03 16:01:24 by jumiguel          #+#    #+#             */
+/*   Updated: 2014/11/04 19:58:29 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
+	if (c >= 0 && c <= 0177)
 		return (1);
 	else
 		return (0);

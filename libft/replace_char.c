@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   replace_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/06 19:46:54 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/03/06 19:54:06 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/08/23 15:30:16 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/09/01 16:40:39 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char		*replace_char(char *s, char o, char r)
+char	*replace_char(char *s, char o, char r)
 {
 	int		i;
 	char	*ret;

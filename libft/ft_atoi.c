@@ -3,36 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 13:36:44 by aaudiber          #+#    #+#             */
-/*   Updated: 2014/11/05 13:49:05 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/05 15:51:19 by jumiguel          #+#    #+#             */
+/*   Updated: 2014/11/13 22:47:26 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+int	calc_atoi(const char *str, int i, int n)
 {
-	int	i;
-	int	ret;
-	int sign;
+	int		j;
+
+	j = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		if (j != 0)
+			n = n * 10;
+		n = n + (str[i] - '0');
+		i++;
+		j++;
+	}
+	return (n);
+}
+
+int	ft_atoi(const char *str)
+{
+	int		i;
+	int		min;
+	int		n;
 
 	i = 0;
-	ret = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\r'
-	|| str[i] == '\f' || str[i] == '\v')
+	min = 1;
+	n = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\v' || \
+			str[i] == '\t' || str[i] == '\r' || str[i] == '\f')
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
 	{
-		sign = -1;
 		i++;
+		min = -1;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && str[i] >= 48 && str[i] <= 57)
-	{
-		ret = ret * 10 + str[i] - 48;
-		i++;
-	}
-	return (ret * sign);
+	n = calc_atoi(str, i, n);
+	if (n == 0)
+		return (0);
+	else
+		return (n * min);
 }

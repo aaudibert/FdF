@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psaint-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/22 18:10:17 by psaint-j          #+#    #+#             */
-/*   Updated: 2016/04/29 15:31:08 by psaint-j         ###   ########.fr       */
+/*   Created: 2016/08/22 14:48:44 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/08/22 14:51:46 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int					ft_intlen(int nbr)
+int		ft_intlen(int nbr)
 {
-	int	len;
+	int		len;
 
 	len = 1;
 	if (nbr < 0)

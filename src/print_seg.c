@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 18:19:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/01 18:47:13 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/02 16:36:38 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,24 @@ void	dx_sup_dy(t_env e, t_bres bsm, int color)
 {
 	int i;
 	int cumul;
-	int x;
-	int y;
 
-	x = bsm.xi;
-	y = bsm.yi;
 	i = 1;
 	cumul = bsm.dx / 2;
 	while (i <= bsm.dx)
 	{
-		x += bsm.xinc;
+		bsm.xi += bsm.xinc;
 		cumul += bsm.dy;
 		if (cumul >= bsm.dx)
 		{
 			cumul -= bsm.dx;
-			y += bsm.yinc;
+			bsm.yi += bsm.yinc;
 		}
-		mlx_pixel_put(e.mlx, e.win, x, y, color);
+		if (i >= bsm.dy / 2 && color == BLUE)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, GREEN);
+		if (i >= bsm.dy / 2 && color == GREEN)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, BROWN);
+		else
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, color);
 		i++;
 	}
 }
@@ -41,23 +42,24 @@ void	dx_inf_dy(t_env e, t_bres bsm, int color)
 {
 	int i;
 	int cumul;
-	int x;
-	int y;
 
-	x = bsm.xi;
-	y = bsm.yi;
 	i = 1;
 	cumul = bsm.dy / 2;
 	while (i <= bsm.dy)
 	{
-		y += bsm.yinc;
+		bsm.yi += bsm.yinc;
 		cumul += bsm.dx;
 		if (cumul >= bsm.dy)
 		{
 			cumul -= bsm.dy;
-			x += bsm.xinc;
+			bsm.xi += bsm.xinc;
 		}
-		mlx_pixel_put(e.mlx, e.win, x, y, color);
+		if (i >= bsm.dy / 2 && color == BLUE)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, GREEN);
+		if (i >= bsm.dy / 2 && color == GREEN)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, BROWN);
+		else
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, color);
 		i++;
 	}
 }
@@ -66,12 +68,12 @@ int		choose_color(int z1, int z2)
 {
 	int color;
 
-	if (z1 != 0 && z2 != 0 && (z1 == z2))
-		color = 0xFF0000;
-	else if ((z1 != 0 && z2 > z1) || (z2 != 0 && z1 > z2))
-		color = 0xFF00FF;
+	if (z1 <= 0 && z2 <= 0)
+		color = BLUE;
+	else if (z1 < z2)
+		color = GREEN;
 	else
-		color = 0x0000FF;
+		color = BROWN;
 	return (color);
 }
 

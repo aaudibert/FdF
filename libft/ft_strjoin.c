@@ -3,41 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/09 17:42:53 by aaudiber          #+#    #+#             */
-/*   Updated: 2014/11/12 17:34:47 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/07 19:07:04 by jumiguel          #+#    #+#             */
+/*   Updated: 2015/01/11 20:39:06 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*ret;
+	char	*concat;
 	int		i;
 	int		j;
-	int		len;
 
-	i = 0;
-	j = 0;
-	if (!s1 || !s2)
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	i = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(concat = (char *)malloc(sizeof(*concat) * i)))
 		return (NULL);
-	len = (ft_strlen(s1) + ft_strlen(s2));
-	if ((ret = (char*)malloc(sizeof(char) * len + 1)) == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
+	i = -1;
+	while (s1[++i])
+		concat[i] = s1[i];
+	j = i;
+	i = -1;
+	while (s2[++i])
 	{
-		ret[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		ret[i] = s2[j];
-		i++;
+		concat[j] = s2[i];
 		j++;
 	}
-	ret[i] = '\0';
-	return (ret);
+	concat[j] = '\0';
+	return (concat);
 }

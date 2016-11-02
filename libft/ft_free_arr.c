@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_arr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/13 14:14:55 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/06/01 20:09:45 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/08/22 15:17:13 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/08/22 15:20:34 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
+#include <stdlib.h>
 #include "libft.h"
 
-void		ft_free_arr(char **arr)
+void	ft_free_arr(char **arr)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if (!arr)

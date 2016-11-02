@@ -3,31 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/07 16:11:27 by aaudiber          #+#    #+#             */
-/*   Updated: 2014/11/28 13:34:49 by aaudiber         ###   ########.fr       */
+/*   Created: 2014/11/08 19:03:59 by jumiguel          #+#    #+#             */
+/*   Updated: 2014/11/13 00:27:17 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char		*ft_strmap(char const *s, char (*f)(char))
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	*ret;
+	char	*copy;
+	char	*str;
 	int		i;
 
-	i = 0;
-	if (!s || !f)
-		return (NULL);
-	if ((ret = (char*)malloc(sizeof(char*) * ft_strlen(s) + 1)) == NULL)
-		return (NULL);
-	while (s[i] != '\0')
+	str = (char *)s;
+	if (str && f)
 	{
-		ret[i] = f(s[i]);
-		i++;
+		i = ft_strlen(str);
+		if (!(copy = (char *)malloc(sizeof(*copy) * (i + 1))))
+			return (NULL);
+		i = 0;
+		while (str[i] != '\0')
+		{
+			copy[i] = f(str[i]);
+			i++;
+		}
+		copy[i] = '\0';
+		return (copy);
 	}
-	ret[i] = '\0';
-	return (ret);
+	return (NULL);
 }
