@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 18:19:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/02 18:27:31 by aaudiber         ###   ########.fr       */
+/*   Updated: 2016/11/02 21:04:32 by aaudiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int		ft_color(int z1)
 
 	if (z1 <= 0)
 		color = BLUE;
-	else if (z1 <= 20)
+	else if (z1 <= 10)
 		color = YELLOW;
-	else if (z1 <= 40)
-		color = GREEN;
 	else if (z1 <= 60)
+		color = GREEN;
+	else if (z1 <= 90)
 		color = DGREEN;
-	else if (z1 <= 80)
+	else if (z1 <= 120)
 		color = BROWN;
 	else
 		color = WHITE;
@@ -47,10 +47,10 @@ void	dx_sup_dy(t_env e, t_bres bsm, t_crd *map, t_crd *next)
 			cumul -= bsm.dx;
 			bsm.yi += bsm.yinc;
 		}
-		if (i >= bsm.dy / 2 && map->z - next->z <= -20)
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z + 20));
-		else if (i >= bsm.dy / 2 && map->z -next->z >= 20)
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z - 20));
+		if (i >= bsm.dy / 2 && map->z - next->z <= -30)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z + 30));
+		else if (i >= bsm.dy / 2 && map->z -next->z >= 30)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z - 30));
 		else
 			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z));
 		i++;
@@ -73,10 +73,10 @@ void	dx_inf_dy(t_env e, t_bres bsm, t_crd *map, t_crd *next)
 			cumul -= bsm.dy;
 			bsm.xi += bsm.xinc;
 		}
-		if (i >= bsm.dy / 2 && map->z - next->z <= -20)
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z + 20));
-		else if (i >= bsm.dy / 2 && map->z -next->z >= 20)
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z - 20));
+		if (i >= bsm.dy / 2 && map->z - next->z <= -30)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z + 30));
+		else if (i >= bsm.dy / 2 && map->z -next->z >= 30)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z - 30));
 		else
 			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z));
 		i++;

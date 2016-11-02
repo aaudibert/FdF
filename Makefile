@@ -6,7 +6,7 @@
 #    By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/04 16:20:10 by aaudiber          #+#    #+#              #
-#    Updated: 2016/11/02 17:16:17 by aaudiber         ###   ########.fr        #
+#    Updated: 2016/11/02 19:42:14 by aaudiber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ clean:
 	@/bin/echo "-----cleaning-----"
 	@/bin/rm -f $(OBJ)
 	@make clean -C ./libft
+	@make clean -C ./mlx
 
 fclean:
 	@/bin/echo "-----fcleaning-----"
