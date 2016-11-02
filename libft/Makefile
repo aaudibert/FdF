@@ -91,10 +91,10 @@ $(NAME):
 	@ranlib libft.a
 
 clean:
-	rm -f $(OBJECT)
+	@rm -f $(OBJECT)
 
 fclean: clean 
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
