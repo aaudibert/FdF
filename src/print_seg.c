@@ -6,13 +6,32 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 18:19:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/02 16:36:38 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/02 18:27:31 by aaudiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
 
-void	dx_sup_dy(t_env e, t_bres bsm, int color)
+int		ft_color(int z1)
+{
+	int color;
+
+	if (z1 <= 0)
+		color = BLUE;
+	else if (z1 <= 20)
+		color = YELLOW;
+	else if (z1 <= 40)
+		color = GREEN;
+	else if (z1 <= 60)
+		color = DGREEN;
+	else if (z1 <= 80)
+		color = BROWN;
+	else
+		color = WHITE;
+	return (color);
+}
+
+void	dx_sup_dy(t_env e, t_bres bsm, t_crd *map, t_crd *next)
 {
 	int i;
 	int cumul;
@@ -28,17 +47,17 @@ void	dx_sup_dy(t_env e, t_bres bsm, int color)
 			cumul -= bsm.dx;
 			bsm.yi += bsm.yinc;
 		}
-		if (i >= bsm.dy / 2 && color == BLUE)
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, GREEN);
-		if (i >= bsm.dy / 2 && color == GREEN)
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, BROWN);
+		if (i >= bsm.dy / 2 && map->z - next->z <= -20)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z + 20));
+		else if (i >= bsm.dy / 2 && map->z -next->z >= 20)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z - 20));
 		else
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, color);
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z));
 		i++;
 	}
 }
 
-void	dx_inf_dy(t_env e, t_bres bsm, int color)
+void	dx_inf_dy(t_env e, t_bres bsm, t_crd *map, t_crd *next)
 {
 	int i;
 	int cumul;
@@ -54,35 +73,20 @@ void	dx_inf_dy(t_env e, t_bres bsm, int color)
 			cumul -= bsm.dy;
 			bsm.xi += bsm.xinc;
 		}
-		if (i >= bsm.dy / 2 && color == BLUE)
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, GREEN);
-		if (i >= bsm.dy / 2 && color == GREEN)
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, BROWN);
+		if (i >= bsm.dy / 2 && map->z - next->z <= -20)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z + 20));
+		else if (i >= bsm.dy / 2 && map->z -next->z >= 20)
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z - 20));
 		else
-			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, color);
+			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z));
 		i++;
 	}
-}
-
-int		choose_color(int z1, int z2)
-{
-	int color;
-
-	if (z1 <= 0 && z2 <= 0)
-		color = BLUE;
-	else if (z1 < z2)
-		color = GREEN;
-	else
-		color = BROWN;
-	return (color);
 }
 
 void	print_segment(t_env e, t_crd *map, t_crd *next)
 {
 	t_bres	bsm;
-	int		color;
 
-	color = choose_color(map->z, next->z);
 	bsm.xi = map->isx;
 	bsm.yi = map->isy;
 	bsm.xf = next->isx;
@@ -95,10 +99,10 @@ void	print_segment(t_env e, t_crd *map, t_crd *next)
 		bsm.dx = bsm.dx * -1;
 	if (bsm.dy < 0)
 		bsm.dy = bsm.dy * -1;
-	mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, color);
+	mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z));
 	if (bsm.dx > bsm.dy)
-		dx_sup_dy(e, bsm, color);
+		dx_sup_dy(e, bsm, map, next);
 	else
-		dx_inf_dy(e, bsm, color);
+		dx_inf_dy(e, bsm, map, next);
 }
 

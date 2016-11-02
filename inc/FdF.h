@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 15:22:48 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/02 16:09:23 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/02 18:14:58 by aaudiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@
 # define MAGENTA		0xFF0000
 # define BLUE			0x000FFF
 # define GREEN			0x00FF00
+# define DGREEN			0x009900
 # define BROWN			0x613109
+# define YELLOW			0xedda10
 
 # define MX				map->x
 # define MY				map->y
