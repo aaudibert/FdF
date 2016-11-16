@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+         #
+#    By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/02/04 16:20:10 by aaudiber          #+#    #+#              #
-#    Updated: 2016/11/02 17:16:17 by aaudiber         ###   ########.fr        #
+#    Created: 2016/02/04 16:20:10 by jumiguel          #+#    #+#              #
+#    Updated: 2016/11/15 19:32:51 by jumiguel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = FdF
 
-SRC = ./src/FdF.c\
+SRC = ./src/fdf.c\
 	  ./src/get_next_line.c\
 	  ./src/create_map.c\
 	  ./src/get_ynext.c\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_seg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/27 18:19:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/02 18:27:31 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/10/27 18:19:43 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/11/15 19:23:20 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	dx_sup_dy(t_env e, t_bres bsm, t_crd *map, t_crd *next)
 		}
 		if (i >= bsm.dy / 2 && map->z - next->z <= -20)
 			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z + 20));
-		else if (i >= bsm.dy / 2 && map->z -next->z >= 20)
+		else if (i >= bsm.dy / 2 && map->z - next->z >= 20)
 			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z - 20));
 		else
 			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z));
@@ -75,7 +75,7 @@ void	dx_inf_dy(t_env e, t_bres bsm, t_crd *map, t_crd *next)
 		}
 		if (i >= bsm.dy / 2 && map->z - next->z <= -20)
 			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z + 20));
-		else if (i >= bsm.dy / 2 && map->z -next->z >= 20)
+		else if (i >= bsm.dy / 2 && map->z - next->z >= 20)
 			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z - 20));
 		else
 			mlx_pixel_put(e.mlx, e.win, bsm.xi, bsm.yi, ft_color(map->z));
@@ -105,4 +105,3 @@ void	print_segment(t_env e, t_crd *map, t_crd *next)
 	else
 		dx_inf_dy(e, bsm, map, next);
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_func.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/11 17:18:01 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/09/19 19:35:33 by aaudiber         ###   ########.fr       */
+/*   Created: 2016/06/11 17:18:01 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/11/15 19:23:59 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int			wrong_extension(char *file)
 	}
 	free(tmp);
 	return (0);
-
 }
 
 void		err_func(char *s)
@@ -32,4 +31,3 @@ void		err_func(char *s)
 	ft_putendl_color(s, RED);
 	exit(0);
 }
-

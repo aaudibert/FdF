@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jumiguel <jumiguel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/19 23:33:43 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/01 17:27:00 by jumiguel         ###   ########.fr       */
+/*   Created: 2016/06/19 23:33:43 by jumiguel          #+#    #+#             */
+/*   Updated: 2016/11/15 19:19:28 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
 
-t_crd            *get_number(char **map, t_crd *cd, int y)
+t_crd		*get_number(char **map, t_crd *cd, int y)
 {
-	int        i;
-	int        j;
+	int i;
+	int j;
 
 	i = -1;
 	while (map[++i])
@@ -24,7 +24,8 @@ t_crd            *get_number(char **map, t_crd *cd, int y)
 		while (map[i] && map[i][j])
 		{
 			if ((!ft_isdigit(map[i][j]) && map[i][j] != '-') ||
-					(map[i][j] == '-' && j != 0))
+					(map[i][j] == '-' && j != 0) ||
+					ft_intlen(ft_atoi(map[i])) != (int)ft_strlen(map[i]))
 			{
 				j = -1;
 				cd = (link_push(new_link(i, y, 0, 0), cd))->next;
@@ -67,7 +68,7 @@ t_crd		*get_map_val(char *map)
 	return (get_ynext(ret));
 }
 
-char        *copy_map(char *tmp, char *line)
+char		*copy_map(char *tmp, char *line)
 {
 	char *ret;
 	char *tmp2;
@@ -84,7 +85,7 @@ char        *copy_map(char *tmp, char *line)
 	}
 }
 
-t_crd        *create_map(char *file)
+t_crd		*create_map(char *file)
 {
 	t_crd	*map;
 	int		fd;

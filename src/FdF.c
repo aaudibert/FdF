@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FdF.c                                              :+:      :+:    :+:   */
+/*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 15:23:11 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/01 18:53:33 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/15 19:37:17 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,11 @@ int		main(int ac, char **av)
 	mlx_key_hook(WIN, key_hook, &e);
 	while (e.map)
 	{
-		if (e.map->next && e.map->next->y == e.map->y && e.map->next->val && e.map->val)
+		if (e.map->next && e.map->next->y == e.map->y && e.map->next->val
+				&& e.map->val)
 			print_segment(e, e.map, e.map->next);
 		if (e.map->ynext && e.map->ynext->val && e.map->val)
 			print_segment(e, e.map, e.map->ynext);
-/*		if (e.map->val && e.map->z == 0)
-			mlx_pixel_put(e.mlx, e.win, e.map->isx, e.map->isy, WHITE);
-		else if (e.map->val && e.map->z > 0)
-			mlx_pixel_put(e.mlx, e.win, e.map->isx, e.map->isy, GREEN);
-		else if (e.map->val && e.map->z < 0)
-			mlx_pixel_put(e.mlx, e.win, e.map->isx, e.map->isy, MAGENTA);
-		else
-			mlx_pixel_put(e.mlx, e.win, e.map->isx, e.map->isy, BLUE);*/
-		e.map = e.map->next;
 	}
 	mlx_loop(e.mlx);
 	return (0);
