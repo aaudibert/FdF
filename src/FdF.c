@@ -6,7 +6,7 @@
 /*   By: aaudiber <aaudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 15:23:11 by aaudiber          #+#    #+#             */
-/*   Updated: 2016/11/15 19:37:17 by jumiguel         ###   ########.fr       */
+/*   Updated: 2016/11/16 16:26:56 by jumiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		main(int ac, char **av)
 			print_segment(e, e.map, e.map->next);
 		if (e.map->ynext && e.map->ynext->val && e.map->val)
 			print_segment(e, e.map, e.map->ynext);
+		e.map = e.map->next;
 	}
 	mlx_loop(e.mlx);
 	return (0);
